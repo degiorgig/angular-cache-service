@@ -1,7 +1,6 @@
 'use strict';
 
-angular
-    .module('myApp')
+angular.module('myApp')
     .factory("userService", userService);
 
 userService.$inject = ["$http", "$q", "$log"];
@@ -19,6 +18,7 @@ function userService($http, $q, $log) {
             }
             else {
                 $log.info("initial request");
+                //free open API for testing purpose
                 promise = $http.get("http://swapi.co/api/people/1/").then(function (response) {
                     return cachedUser = response.data.name;
                 });
